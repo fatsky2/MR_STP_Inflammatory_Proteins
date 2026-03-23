@@ -1,0 +1,43 @@
+Requirements.txt (R Package Dependencies)
+For Mendelian Randomization (MR) Analysis + Circular Heatmap & Forest Plot Visualization
+This file lists all R packages required to reproduce the analysis and visualization in this repository.
+1. R Version Recommendation
+R >= 4.4.0 (consistent with the original analysis environment)
+2. Installation Methods
+Option 1: Auto-Install via Built-in Function
+Use the install_load_pkg() function in the provided R scripts to auto-install missing packages (distinguishes CRAN/Bioconductor sources automatically).
+Option 2: Manual Installation
+
+Step 1: Install CRAN Packages
+install.packages(c(
+  "data.table", "TwoSampleMR", "ggplot2", "writexl", "foreach",
+  "ieugwasr", "tibble", "plinkbinr", "readxl", "dplyr", "circlize",
+  "RColorBrewer", "dendextend", "dendsort", "gridBase", "grid", "forestploter"
+), repos = "https://mirrors.tuna.tsinghua.edu.cn/CRAN/") # Replace with your local CRAN mirror if needed
+
+Step 2: Install Bioconductor Packages
+if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
+BiocManager::install("ComplexHeatmap", update = FALSE)
+3. Full Package List
+CRAN Packages
+Package Name	Version Requirement	Purpose
+data.table	>= 1.15.4	Fast data reading/writing
+TwoSampleMR	>= 0.5.6	Core two-sample MR analysis
+ggplot2	>= 3.4.4	Data visualization (base)
+writexl	>= 1.5.0	Export results to Excel
+foreach	>= 1.5.2	Loop through exposure datasets
+ieugwasr	>= 0.1.5	LD clumping for IV selection
+tibble	>= 3.2.1	Data frame manipulation
+plinkbinr	>= 0.0.1	PLINK binary for LD clumping
+readxl	>= 1.4.3	Read Excel files for result aggregation
+dplyr	>= 1.1.4	Data preprocessing (unified logic)
+circlize	>= 0.4.16	Circular heatmap plotting
+RColorBrewer	>= 1.1-3	Color palette for visualization
+dendextend	>= 1.17.1	Dendrogram customization
+dendsort	>= 0.5.3	Dendrogram reordering
+gridBase	>= 0.4-7	Grid graphics integration
+grid	(Base R package)	Low-level graphics support
+forestploter	>= 0.3.0	Forest plot for OR (Odds Ratio) analysis
+Bioconductor Packages
+Package Name	Version Requirement	Purpose
+ComplexHeatmap	>= 2.18.0	Advanced circular heatmap plotting
